@@ -26,7 +26,7 @@ $type = isset($_REQUEST['type']) && !empty($_REQUEST['type']) ? $_REQUEST['type'
         _top = (screen.height-_height)/2,
         _left = (screen.width-_width)/2,
         _url = 'www.baidu.com',
-        _pic = 'https://raw.githubusercontent.com/guanghuichenshao/W3/master/src/QQ%E5%9B%BE%E7%89%8720180126212915.png';
+        _pic = 'https://raw.githubusercontent.com/guanghuichenshao/punch/master/master/eg.png';
 
     //分享到新浪微博
     function shareToSinaWB(event,times){
@@ -127,7 +127,7 @@ echo "
               
                 <table align='center'>
                     <tr>
-                        <td>$times
+                        <td>排名
                         </td>
                         <td>昵称
                         </td>
@@ -185,7 +185,7 @@ echo "
           <h3> ".$_SESSION['username'].",你目前排在第".$rank."名,请努力保持，继续加油喔~</h3>
           <a class='btn btn-success' href='/master/index' role='button'>返回到首页</a>
           <a class='btn btn-success' href='/master/punch.php?state=1&type=$type' role='button'>返回上一页</a>
-          <button type='button' class='btn btn-danger'>注销登陆</button>
+          <a class='btn btn-danger' href='/master/welcome.php?a=loginout' role='button'>注销登陆</a>
           <div class='m-box'>
     <div class='icn'><a class='wb1' onclick='shareToSinaWB(event,$times)'></a></div>
 

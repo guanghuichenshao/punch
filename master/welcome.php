@@ -1,11 +1,22 @@
 <?php
+$a = isset($_REQUEST['a']) && !empty($_REQUEST['a']) ? $_REQUEST['a'] : "";
+
   session_start();
+if($a=='loginout'){
+//清除sesssion
+    unset($_SESSION['username']);
+    unset($_SESSION['userid']);
+    session_destroy();
+    setcookie("username", "", time() - 3600);
+    setcookie("userid", "", time() - 3600);
+}
   if (isset($_SESSION['username'])) {
     header('location:index.php');
   }
 //echo $_SESSION['username'];
 //echo "/br";
 //echo $_COOKIE['username'];
+
  ?>
 <!DOCTYPE html>
 <html lang="zh-CN">

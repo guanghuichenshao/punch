@@ -28,6 +28,16 @@ if (isset($_SESSION['rem'])) {
         }
 
     }
+    function btnClick(){
+        $.ajax({
+            type: "GET",
+            url: "exit.php",
+            data:dataVal,
+            // data: "name=John&location=Boston",
+            success: function(msg){
+                alert(msg);
+            }
+        });
 </script>
 <style type="text/css">
     table {
@@ -92,28 +102,30 @@ echo "
                 <table align='center'>
                     <tr>
                         <td>
-                            <a onclick='MsgBox()' class='btn btn-primary btn-lg'  href='/master/punch.php?state=$getUp&type=getUp' role='button'>早起打卡</a>
+                            <a class='btn btn-primary btn-lg'  href='/master/punch.php?state=$getUp&type=getUp' role='button'>早起打卡</a>
                         </td>
                         <td>
-                            <a class='btn btn-success btn-lg' href='/master/punch.php?state=$sleep&type=sleep'' role='button'>早睡打卡</a>
+                            <a class='btn btn-success btn-lg' href='/master/punch.php?state=$sleep&type=sleep' role='button'>早睡打卡</a>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <a class='btn btn-info btn-lg' href='/master/punch.php?state=$train&type=train'' role='button'>健身打卡</a>
+                            <a class='btn btn-info btn-lg' href='/master/punch.php?state=$train&type=train' role='button'>健身打卡</a>
                         </td>
                         <td>
-                            <a class='btn btn-warning btn-lg' href='/master/punch.php?state=$study&type=study'' role='button'>单词打卡</a>
+                            <a class='btn btn-warning btn-lg' href='/master/punch.php?state=$study&type=study' role='button'>单词打卡</a>
                         </td>
                     </tr>
                 </table>
             </div>
           </div>
-          <button type='button' class='btn btn-danger'>注销登陆</button>
+          <a class='btn btn-danger' href='/master/welcome.php?a=loginout' role='button'>注销登陆</a>
+
       </div>
 
     </div><!-- /.container -->
 ";
+
 
 
 

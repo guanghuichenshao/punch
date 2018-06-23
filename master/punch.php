@@ -114,9 +114,11 @@ if ($mysqli->query($sql2) === true) {
                 </table>
             </div>
         </div>
+        <a class='btn btn-success' href='/master/index.php' role='button'>返回上一页</a>
+
         <a class='btn btn-success' href='/master/rank.php?type=$type' role='button'>排行榜</a>
 
-        <button type='button' class='btn btn-danger'>注销登陆</button>
+        <a class='btn btn-danger' href='/master/welcome.php?a=loginout' role='button'>注销登陆</a>
     </div>
 
 </div><!-- /.container -->
