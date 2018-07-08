@@ -85,24 +85,27 @@ class Login
 //        }
 
 
-        if (!$res) {
-            echo "<script>alert('Email or password is incorrect.please try again!');history.go(-1);</script>";
-            exit();
-        }else{
+        if ($res) {
 
 
+            if ($res->num_rows == 0) {
+                echo "<script>alert('Email or password is incorrect.please try again!');history.go(-1);</script>";
+                exit();
+            } else {
 
-            $row=$res->fetch_assoc();
-            $_SESSION['username'] = $row['username'];
-            $_SESSION['userid'] = $row['userid'];
-            setcookie("username", $row['username'], time()+3600);
-            setcookie("userid", $row['userid'], time()+3600);
-            if ($this->rem == 1) {
-                $_SESSION['rem'] = '1';
+
+                $row = $res->fetch_assoc();
+                $_SESSION['username'] = $row['username'];
+                $_SESSION['userid'] = $row['userid'];
+                setcookie("username", $row['username'], time() + 3600);
+                setcookie("userid", $row['userid'], time() + 3600);
+                if ($this->rem == 1) {
+                    $_SESSION['rem'] = '1';
+                }
+                echo "<script>alert('Login Success!');location.href = '/master/index.php'</script>";
+                $mysqli->close();
+                exit();
             }
-            echo "<script>alert('Login Success!');location.href = '/master/index.php'</script>";
-            $mysqli->close();
-            exit();
         }
 	}
 
