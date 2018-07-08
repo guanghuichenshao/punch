@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['username'])) {
     if (isset($_COOKIE['username'])) {
         $_SESSION['username'] = $_COOKIE['username'];
@@ -84,6 +83,12 @@ if ($mysqli->query($sql) === true) {
         $sql1 = "insert into $rankTable(userid,username,punchTime) values ($id,'$username',$time)";
         if ($mysqli->query($sql1) === true) {
             $Info="打卡成功";
+            $sql2 = "UPDATE punch set $times = $times + 1 WHERE userid = $id";
+            if ($mysqli->query($sql2) === true) {
+
+                    $Info1="累计打卡多少次";
+
+            }
         }else{
             $Info="打卡数据存入失败";
         }
@@ -92,13 +97,9 @@ if ($mysqli->query($sql) === true) {
     }
 }
 
-$sql2 = "UPDATE punch set $times = $times + 1 WHERE userid = $id";
 
-if ($mysqli->query($sql2) === true) {
-    if ($state==0){
-            $Info1="累计打卡多少次";
-    }
-}
+
+
 
     echo "
 <div class='container'>

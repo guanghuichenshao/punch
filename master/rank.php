@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+date_default_timezone_set('Asia/Shanghai');
 if (!isset($_SESSION['username'])) {
     if (isset($_COOKIE['username'])) {
         $_SESSION['username'] = $_COOKIE['username'];
