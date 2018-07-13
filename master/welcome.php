@@ -16,8 +16,34 @@ if($a=='loginout'){
 //echo $_SESSION['username'];
 //echo "/br";
 //echo $_COOKIE['username'];
+$url = 'http://api.yytianqi.com/observe?city=CH050101&key=保密';
+$result = file_get_contents($url);
+//echo $result;
+$jsonArray = json_decode($result);
+//json_decode($result,true);
+//$arr = $jsonArray->msg;
+$cityName = $jsonArray->data->cityName;
+$lastUpdate = $jsonArray->data->lastUpdate;
+$tq = $jsonArray->data->tq;
+$qw = $jsonArray->data->qw;
+$fl = $jsonArray->data->fl;
+$fx = $jsonArray->data->fx;
+$sd = $jsonArray->data->sd;
+//$jsonArray2 = json_decode($jsonArray->data);
+//$arr2 = $jsonArray2->cityId;
 
- ?>
+
+
+?>
+<style type="text/css">
+
+    table td {
+        align="left";
+    }
+    table {
+        margin-left: 40%;
+    }
+</style>
 <!DOCTYPE html>
 <html lang="zh-CN">
   <!-- header部分 -->
@@ -31,10 +57,77 @@ if($a=='loginout'){
     <div class="container">
       <div class="content">
           <div class="starter-template">
-                <!-- 这里做了修改，其他地方自由发挥 -->
-            <h1>Welcome To Welcome To Hrbust Punch System</h1>
-            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-          </div>  
+              <h1>Welcome To Welcome To Hrbust Punch System</h1>
+
+              <div class='jumbotron'>
+                  <!-- 这里做了修改，其他地方自由发挥 -->
+                  <p class="lead">你可以在这里进行每日的早起早睡，健身学习等打卡，还可以在排行榜与好友pk</p>
+
+
+              </div>
+              <h4>实时天气</h4>
+              <table width="40%">
+                  <tr>
+                      <td>
+                          城市
+                      </td>
+                      <td>
+                          <?php echo $cityName ?>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          现象
+                      </td>
+                      <td>
+                          <?php echo $tq ?>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          气温
+                      </td>
+                      <td>
+                          <?php echo $qw ?>℃
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          风力
+                      </td>
+                      <td>
+                          <?php echo $fl ?>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          风向
+                      </td>
+                      <td>
+                          <?php echo $fx ?>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          相对湿度
+                      </td>
+                      <td>
+                          <?php echo $sd ?>%
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          天气更新时间
+                      </td>
+                      <td>
+                          <?php echo $lastUpdate ?>
+                      </td>
+                  </tr>
+              </table>
+
+
+
+          </div>
           <!-- 注册表单 -->
           <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" id="register" aria-labelledby="myLargeModalLabel">
             <div class="modal-dialog modal-lg">
