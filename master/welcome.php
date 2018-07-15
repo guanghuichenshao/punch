@@ -16,7 +16,7 @@ if($a=='loginout'){
 //echo $_SESSION['username'];
 //echo "/br";
 //echo $_COOKIE['username'];
-$url = 'http://api.yytianqi.com/observe?city=CH050101&key=保密';
+$url = 'http://api.yytianqi.com/observe?city=CH050101&key=lu0c715192s34w2i';
 $result = file_get_contents($url);
 //echo $result;
 $jsonArray = json_decode($result);
@@ -36,6 +36,51 @@ $sd = $jsonArray->data->sd;
 
 ?>
 <style type="text/css">
+    .case {
+        width: 800px;
+        height: 30px;
+        overflow: hidden;
+        left: calc(50% - 400px);
+        top: 150px;
+        margin: 0 auto;
+    }
+    .case .part1 {
+        float: left;
+        width: 5%;
+        height: 30px;
+    }
+    .case .part1 img {
+        width: 40px;
+        height: 20px;
+        float: right;
+        margin-top: 5px;
+    }
+    .case .part2 {
+        float: left;
+        width: 93%;
+        height: 30px;
+        text-indent: 1em;
+        overflow: hidden;
+    }
+    #part2 ul {
+        width: 100%;
+        height: auto;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    #part2 ul li {
+        width: 100%;
+        height: 30px;
+        font-size: 16px;
+        line-height: 30px;
+        color: #575757;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+</style>
+<style type="text/css">
 
     table td {
         align="left";
@@ -43,7 +88,9 @@ $sd = $jsonArray->data->sd;
     table {
         margin-left: 40%;
     }
+
 </style>
+
 <!DOCTYPE html>
 <html lang="zh-CN">
   <!-- header部分 -->
@@ -54,12 +101,31 @@ $sd = $jsonArray->data->sd;
   <!-- 导航栏 -->
   <?php require_once 'public/layouts/nav.php' ?>
   <!-- 页面主体内容 -->
+
     <div class="container">
       <div class="content">
           <div class="starter-template">
+              <div class="case" >
+                  <div class="part1">
+                      <img src="public/img/notice.jpg">
+                  </div>
+                  <div class="part2" id="part2">
+                      <div id="scroll1">
+                          <ul>
+                              <li>黄嘉超在3分钟前在哈尔滨进行了早起打卡</li>
+                              <li>杜传宇在12分钟前在牡丹江进行了健身打卡</li>
+                              <li>刘雷在15分钟前在北京进行了早起打卡</li>
+                              <li>杨天一在16分钟前在哈尔滨进行了单词打卡</li>
+                              <li>韩志伟在17分钟前在鹤岗进行了单词打卡</li>
+                          </ul>
+                      </div>
+                      <div id="scroll2"></div>
+                  </div>
+              </div>
               <h1>Welcome To Welcome To Hrbust Punch System</h1>
 
               <div class='jumbotron'>
+
                   <!-- 这里做了修改，其他地方自由发挥 -->
                   <p class="lead">你可以在这里进行每日的早起早睡，健身学习等打卡，还可以在排行榜与好友pk</p>
 
@@ -274,5 +340,7 @@ $sd = $jsonArray->data->sd;
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="public/js/check.js"></script>
+    <script src="public/js/rolling.js"></script>
+
   </body>
 </html>
