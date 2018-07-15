@@ -28,7 +28,7 @@
 
 10.手机号注册时向手机发送短信验证
 
-![图片加载失败,请刷新](https://github.com/guanghuichenshao/punch/blob/master/master/eg2.png)
+![图片加载失败,请刷新](https://raw.githubusercontent.com/guanghuichenshao/punch/master/master/public/img/eg2.png)
 
 ![图片加载失败,请刷新](https://github.com/guanghuichenshao/punch/blob/master/master/eg.png)
 ——————————————————————————————————
