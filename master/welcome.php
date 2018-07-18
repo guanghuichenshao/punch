@@ -16,7 +16,7 @@ if($a=='loginout'){
 //echo $_SESSION['username'];
 //echo "/br";
 //echo $_COOKIE['username'];
-$url = 'http://api.yytianqi.com/observe?city=CH050101&key=lu0c715192s34w2i';
+$url = 'http://api.yytianqi.com/observe?city=CH050101&key=保密';
 $result = file_get_contents($url);
 //echo $result;
 $jsonArray = json_decode($result);
